@@ -16,6 +16,12 @@
 </p>
 <br>
 
+## 📱 Screens
+- SplashScreen
+- NotesScreen
+- SavedScreen
+- DetailScreen
+
 <!-- Technologies -->
 ## :point_down: Structures Used
 - View Binding 
