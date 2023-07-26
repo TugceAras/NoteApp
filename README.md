@@ -5,7 +5,7 @@
 <!-- Screenshots -->
 ## 📸 Screenshots
 
-- Not all screens have images due to emulator issue ! 😕
+- Screenshots of some screens are not available below due to emulator issue ! 😕
 
 <br>
 
