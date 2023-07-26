@@ -1,6 +1,6 @@
 # <p align="center"> Note App ✏️📓 </p>
 
-- The fourth homework given by Up School
+- The fourth homework given by UpSchool
 
 <!-- Screenshots -->
 ## 📸 Screenshots
