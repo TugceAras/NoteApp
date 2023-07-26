@@ -6,7 +6,7 @@
 ## 📸 Screenshots
 
 - Screenshots of some screens are not available below due to emulator issue ! 😕
-- But you can run the app and see ✨
+- But you can run the app and see the screens ✨
 
 <br>
 
