@@ -51,7 +51,7 @@ class SavedNotesScreen : Fragment() {
                     noteModel.saveType
                 )
             }
-            requireContext().toastMessage("Deleted and transferred note successfully!")
+            requireContext().toastMessage("Transferred note successfully to Notes!")
             createAdapter()
         }
     }

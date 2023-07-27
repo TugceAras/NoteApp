@@ -55,6 +55,12 @@ class DetailNoteScreen : Fragment() {
                         requireContext().toastMessage("Deleted successfully in Notes!")
                     }
                     else{
+                        with(binding){
+                            tvDetailTitle.text = ""
+                            tvDetailDescription.text = ""
+                            tvDetailDate.text = ""
+                            btnDetailDelete.gone()
+                        }
                         NoteDatabase.deleteNoteInSaved(args.note)
                         requireContext().toastMessage("Deleted successfully in Saved!")
                     }

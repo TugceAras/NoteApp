@@ -63,7 +63,7 @@ class NotesScreen : Fragment() {
                     noteModel.saveType
                 )
             }
-            requireContext().toastMessage("Deleted and transferred note successfully!")
+            requireContext().toastMessage("Transferred note successfully to Saved!")
             createAdapter()
         }
     }
@@ -115,11 +115,13 @@ class NotesScreen : Fragment() {
 
                 if (title.isNotEmpty() && desc.isNotEmpty() && selectedSaveType.isNotEmpty() && selectedSaveType == "Notes") {
                     NoteDatabase.addNoteInHome(title, desc, selectedDate, selectedSaveType)
+                    requireContext().toastMessage("Successfully added in Notes!")
                     createAdapter()
                     dialog.dismiss()
                 }
                 else {
                     NoteDatabase.addNoteInSaved(title, desc, selectedDate, selectedSaveType)
+                    requireContext().toastMessage("Successfully added in Saved!")
                     dialog.dismiss()
                 }
             }
