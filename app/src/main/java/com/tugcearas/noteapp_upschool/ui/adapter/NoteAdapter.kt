@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.tugcearas.noteapp_upschool.data.model.NoteModel
 import com.tugcearas.noteapp_upschool.databinding.NoteItemBinding
+import com.tugcearas.noteapp_upschool.util.click
 
 class NoteAdapter(
      var checkboxClick: (NoteModel) -> Unit = {},
@@ -18,7 +19,7 @@ class NoteAdapter(
             with(binding){
                 tvTitle.text = note.title
                 tvDate.text = note.date
-                checkbox.setOnCheckedChangeListener { _, isChecked ->
+                checkbox.click {
                     checkboxClick(note)
                 }
                 root.setOnClickListener{
