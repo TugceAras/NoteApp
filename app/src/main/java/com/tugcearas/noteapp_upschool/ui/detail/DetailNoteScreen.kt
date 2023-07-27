@@ -11,6 +11,7 @@ import androidx.navigation.fragment.navArgs
 import com.tugcearas.noteapp_upschool.data.source.NoteDatabase
 import com.tugcearas.noteapp_upschool.databinding.FragmentDetailNoteScreenBinding
 import com.tugcearas.noteapp_upschool.util.click
+import com.tugcearas.noteapp_upschool.util.gone
 import com.tugcearas.noteapp_upschool.util.toastMessage
 
 class DetailNoteScreen : Fragment() {
@@ -44,6 +45,12 @@ class DetailNoteScreen : Fragment() {
                 .setMessage("Do you want to delete this note?")
                 .setPositiveButton("Yes"){_,_ ->
                     if (args.fromHome){
+                        with(binding){
+                            tvDetailTitle.text = ""
+                            tvDetailDescription.text = ""
+                            tvDetailDate.text = ""
+                            btnDetailDelete.gone()
+                        }
                         NoteDatabase.deleteNoteInHome(args.note)
                         requireContext().toastMessage("Deleted successfully in Notes!")
                     }

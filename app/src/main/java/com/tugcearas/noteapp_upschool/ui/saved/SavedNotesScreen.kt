@@ -10,12 +10,13 @@ import com.tugcearas.noteapp_upschool.data.model.NoteModel
 import com.tugcearas.noteapp_upschool.data.source.NoteDatabase
 import com.tugcearas.noteapp_upschool.databinding.FragmentSavedNotesScreenBinding
 import com.tugcearas.noteapp_upschool.ui.adapter.NoteAdapter
+import com.tugcearas.noteapp_upschool.ui.adapter.SavedAdapter
 import com.tugcearas.noteapp_upschool.util.toastMessage
 
 class SavedNotesScreen : Fragment() {
 
     private lateinit var binding: FragmentSavedNotesScreenBinding
-    private val noteAdapter by lazy { NoteAdapter(onItemClick = ::onClickNoteItem) }
+    private val savedAdapter by lazy { SavedAdapter(savedOnItemClick = ::onClickNoteItem) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,13 +35,13 @@ class SavedNotesScreen : Fragment() {
     private fun createAdapter() {
         binding.apply {
             val getList = NoteDatabase.getSavedNotes()
-            rvSaved.adapter = noteAdapter
-            noteAdapter.updateList(getList)
+            rvSaved.adapter = savedAdapter
+            savedAdapter.updateList(getList)
         }
     }
 
     private fun checkBoxClick() {
-        noteAdapter.checkboxClick = { noteModel ->
+        savedAdapter.savedCheckboxClick = { noteModel ->
             NoteDatabase.deleteNoteInSaved(noteModel)
             noteModel.description?.let {
                 NoteDatabase.addNoteInHome(

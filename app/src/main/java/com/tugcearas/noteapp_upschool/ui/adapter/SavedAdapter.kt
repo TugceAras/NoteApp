@@ -7,37 +7,38 @@ import com.tugcearas.noteapp_upschool.data.model.NoteModel
 import com.tugcearas.noteapp_upschool.databinding.NoteItemBinding
 import com.tugcearas.noteapp_upschool.util.click
 
-class NoteAdapter(
-     var checkboxClick: (NoteModel) -> Unit = {},
-     var onItemClick: (NoteModel) -> Unit
-):RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
+class SavedAdapter(
+    var savedCheckboxClick: (NoteModel) -> Unit = {},
+    var savedOnItemClick: (NoteModel) -> Unit
+): RecyclerView.Adapter<SavedAdapter.SavedViewHolder>() {
 
     private val noteList = mutableListOf<NoteModel>()
 
-    inner class NoteViewHolder(private val binding:NoteItemBinding) : RecyclerView.ViewHolder(binding.root){
+    inner class SavedViewHolder(private val binding: NoteItemBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(note: NoteModel){
             with(binding){
                 tvTitle.text = note.title
                 tvDate.text = note.date
 
+                checkbox.isChecked = true
                 checkbox.click {
-                    checkboxClick(note)
+                    savedCheckboxClick(note)
                 }
 
                 root.setOnClickListener{
-                    onItemClick(note)
+                    savedOnItemClick(note)
                 }
             }
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = NoteViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = SavedViewHolder(
         NoteItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
     )
 
     override fun getItemCount(): Int = noteList.size
 
-    override fun onBindViewHolder(holder: NoteViewHolder, position: Int) = holder.bind(noteList[position])
+    override fun onBindViewHolder(holder: SavedViewHolder, position: Int) = holder.bind(noteList[position])
 
     fun updateList(list: List<NoteModel>) {
         noteList.clear()
